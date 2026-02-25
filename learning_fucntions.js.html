@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Your JavaScript goes here!
+      console.log("Hello, World!");
+
+      let n = 10;
+      let string = "Sponged Bobs serve Krabby Patties";
+
+      function add7(n) {
+        return n + 7;
+      }
+
+      function mult2(n) {
+        return n * 2;
+      }
+
+      console.log(add7(n));
+      console.log(mult2(n));
+      console.log("-----");
+
+      function lowerCap(string) {
+        let newString = string.toLowerCase();
+        return newString;
+      }
+      function allCap(string) {
+        return lowerCap(string).toUpperCase();
+      }
+      function sentenceCap(string) {
+        return (
+          lowerCap(string).charAt(0).toUpperCase() +
+          lowerCap(string).slice(1) +
+          "."
+        );
+      }
+      function titleCap(string) {
+        let newString = "Requires learning loops & maps";
+        return newString;
+      }
+
+      console.log("original:\n\t" + string);
+      console.log("lowercase:\n\t" + lowerCap(string));
+      console.log("uppercase:\n\t" + allCap(string));
+      console.log("sentence case:\n\t" + sentenceCap(string));
+      console.log("title case:\n\t" + titleCap(string));
+    </script>
+  </body>
+</html>
