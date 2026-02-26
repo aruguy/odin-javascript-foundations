@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock-Paper-Scissors</title>
+  </head>
+  <body>
+    <script>
+      let choiceP1 = prompt("Choose your weapon: ROCK, PAPER, SCISSOR");
+      choiceP1 = choiceP1.toString().toUpperCase();
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
+
+      let choiceP2 = getRandomInt(3);
+
+      if (choiceP2 == 0) {
+        choiceP2 = "ROCK";
+      } else if (choiceP2 == 1) {
+        choiceP2 = "PAPER";
+      } else if (choiceP2 == 2) {
+        choiceP2 = "SCISSOR";
+      }
+
+      console.log("Player 1: " + choiceP1);
+      console.log("Player 2: " + choiceP2);
+
+      let victor = null;
+
+      if (
+        choiceP1 !== "ROCK" &&
+        choiceP1 !== "PAPER" &&
+        choiceP1 !== "SCISSOR"
+      ) {
+        console.log("CHEATER! You get nothing, you lose! Good day, Sir!");
+      } else if (choiceP1 == "ROCK" && choiceP2 == "SCISSOR") {
+        victor = "p1";
+      } else if (choiceP1 == "ROCK" && choiceP2 == "PAPER") {
+        victor = "p2";
+      } else if (choiceP1 == "PAPER" && choiceP2 == "ROCK") {
+        victor = "p1";
+      } else if (choiceP1 == "PAPER" && choiceP2 == "SCISSOR") {
+        victor = "p2";
+      } else if (choiceP1 == "SCISSOR" && choiceP2 == "PAPER") {
+        victor = "p1";
+      } else if (choiceP1 == "SCISSOR" && choiceP2 == "ROCK") {
+        victor = "p2";
+      }
+
+      if (victor == "p1") {
+        console.log("Player 1 WINS: " + choiceP1 + " beats " + choiceP2 + "!");
+      } else if (victor == "p2") {
+        console.log("Player 2 WINS: " + choiceP2 + " beats " + choiceP1 + "!");
+      } else {
+        console.log("It's a draw!");
+      }
+    </script>
+  </body>
+</html>
