@@ -7,7 +7,7 @@
   </head>
   <body>
     <script>
-      const rounds = 3;
+      let rounds = 5;
       let round = 0;
       let tallyP1 = 0;
       let tallyP2 = 0;
@@ -71,6 +71,25 @@
           console.log("It's a draw!");
         }
         if (round < rounds) {
+          if (tallyP2 >= rounds - round && tallyP2 > tallyP1) {
+            continueGame();
+          } else {
+            game();
+          }
+        } else {
+          winner();
+        }
+      }
+      function continueGame() {
+        let newRounds = rounds * 2 - 1;
+        console.log("newRounds = " + newRounds);
+        let addRounds = prompt(
+          "You can't win, best of " + newRounds + "?\nYES or NO",
+        )
+          .toString()
+          .toUpperCase();
+        if (addRounds === "YES") {
+          rounds = newRounds;
           game();
         } else {
           winner();
@@ -79,9 +98,25 @@
       function winner() {
         console.log("\n");
         if (tallyP1 > tallyP2) {
-          console.log("Player 1 Wins!");
+          console.log(
+            "Player 1 Wins!\n" +
+              tallyP1 +
+              " victories and " +
+              tallyDraws +
+              " draws across " +
+              rounds +
+              " rounds",
+          );
         } else if (tallyP2 > tallyP1) {
-          console.log("Player 1 Lost!");
+          console.log(
+            "Player 1 Lost!\n" +
+              tallyP2 +
+              " losses and " +
+              tallyDraws +
+              " draws across " +
+              round +
+              " rounds",
+          );
         } else {
           console.log("The game is a draw!");
         }
