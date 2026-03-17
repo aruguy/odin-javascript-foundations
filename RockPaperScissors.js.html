@@ -9,9 +9,12 @@
     <script>
       const rounds = 3;
       let round = 0;
+      let tallyP1 = 0;
+      let tallyP2 = 0;
+      let tallyDraws = 0;
       function game() {
         round += 1;
-        console.log("Round " + round);
+        console.log("\nRound " + round);
 
         let choiceP1 = prompt(
           "Round " + round + "\nChoose your weapon: ROCK, PAPER, SCISSOR",
@@ -58,26 +61,32 @@
         }
 
         if (victor == "p1") {
-          console.log(
-            "Player 1 WINS: " + choiceP1 + " beats " + choiceP2 + "!",
-          );
+          tallyP1 += 1;
+          console.log(choiceP1 + " beats " + choiceP2 + "!");
         } else if (victor == "p2") {
-          console.log(
-            "Player 2 WINS: " + choiceP2 + " beats " + choiceP1 + "!",
-          );
+          tallyP2 += 1;
+          console.log(choiceP2 + " beats " + choiceP1 + "!");
         } else {
+          tallyDraws += 1;
           console.log("It's a draw!");
         }
         if (round < rounds) {
-          play();
+          game();
         } else {
-          return;
+          winner();
         }
       }
-      function play() {
-        game();
+      function winner() {
+        console.log("\n");
+        if (tallyP1 > tallyP2) {
+          console.log("Player 1 Wins!");
+        } else if (tallyP2 > tallyP1) {
+          console.log("Player 1 Lost!");
+        } else {
+          console.log("The game is a draw!");
+        }
       }
-      play();
+      game();
     </script>
   </body>
 </html>
