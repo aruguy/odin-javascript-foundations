@@ -9,7 +9,7 @@
     <script>
       const rounds = 3;
       let round = 0;
-      function game(round) {
+      function game() {
         round += 1;
         console.log("Round " + round);
 
@@ -68,14 +68,14 @@
         } else {
           console.log("It's a draw!");
         }
-        if (round <= rounds) {
+        if (round < rounds) {
           play();
         } else {
           return;
         }
       }
       function play() {
-        game(round);
+        game();
       }
       play();
     </script>
